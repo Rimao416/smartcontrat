@@ -58,15 +58,19 @@ class ArticleController extends Controller
     {
         $article = Article::findOrFail($id);
         $article = $this->articleService->updateArticle($article, $request->validated());
-        return response()->json($article);
+        
+        return redirect()->route('articles.index')
+                         ->with('success', 'Modification effectuée avec succès !');
     }
+    
 
     // DELETE /api/articles/{id}
     public function destroy($id)
     {
         $article = Article::findOrFail($id);
         $this->articleService->deleteArticle($article);
-        return response()->json(['message' => 'Article deleted successfully']);
+        return redirect()->route('articles.index')
+                         ->with('success', 'Article supprimé avec succès !');
     }
     public function edit($id)
 {

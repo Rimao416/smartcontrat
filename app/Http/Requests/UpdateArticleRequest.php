@@ -11,7 +11,7 @@ class UpdateArticleRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -19,10 +19,14 @@ class UpdateArticleRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    public function rules(): array
-    {
-        return [
-            //
-        ];
-    }
+    public function rules()
+{
+    return [
+        'title'       => 'sometimes|required|string|max:255',
+        'description' => 'sometimes|required|string',
+        'image'       => 'nullable|image',
+        'theme_id'    => 'sometimes|required|exists:themes,id',
+        'date'        => 'sometimes|required|date',
+    ];
+}
 }
