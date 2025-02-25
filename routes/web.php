@@ -13,11 +13,11 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/', [ArticleController::class, 'index'])->name('articles.index');
-Route::post('/articles', [ArticleController::class, 'store'])->name('articles.store');
-Route::get('/articles/create', [ArticleController::class, 'create'])->name('articles.create');
-Route::get('/articles/{id}', [ArticleController::class, 'show'])->name('articles.show');
-Route::get('/articles/{id}/edit', [ArticleController::class, 'edit'])->name('articles.edit');
-Route::delete('/articles/{id}', [ArticleController::class, 'destroy'])->name('articles.destroy');
-Route::put('/articles/{id}', [ArticleController::class, 'update'])->name('articles.update');
+Route::resource('articles', ArticleController::class);
+// Route::get('/', [ArticleController::class, 'index'])->name('articles.index');
+// Route::post('/articles', [ArticleController::class, 'store'])->name('articles.store');
+// Route::get('/articles/create', [ArticleController::class, 'create'])->name('articles.create');
+// Route::get('/articles/{id}', [ArticleController::class, 'show'])->name('articles.show');
+// Route::get('/articles/{id}/edit', [ArticleController::class, 'edit'])->name('articles.edit');
+// Route::delete('/articles/{id}', [ArticleController::class, 'destroy'])->name('articles.destroy');
+// Route::put('/articles/{id}', [ArticleController::class, 'update'])->name('articles.update');

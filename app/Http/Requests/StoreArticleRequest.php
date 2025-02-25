@@ -29,4 +29,20 @@ class StoreArticleRequest extends FormRequest
         'date'        => 'required|date',
     ];
 }
+public function messages()
+{
+    return [
+        'title.required'       => "Le titre de l'article est obligatoire.",
+        'title.string'         => "Le titre doit être une chaîne de caractères.",
+        'title.max'            => "Le titre ne doit pas dépasser 255 caractères.",
+        'description.required' => "La description est obligatoire.",
+        'description.string'   => "La description doit être une chaîne de caractères.",
+        'image.image'          => "Le fichier sélectionné doit être une image.",
+        'theme_id.required'    => "Le thème est obligatoire.",
+        'theme_id.exists'      => "Le thème sélectionné est invalide.",
+        'date.required'        => "La date de publication est obligatoire.",
+        'date.date'            => "La date de publication doit être une date valide.",
+    ];
+}
+
 }
