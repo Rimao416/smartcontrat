@@ -20,15 +20,21 @@ class ArticleController extends Controller
     }
 
     // GET /api/articles
+    // public function index()
+    // {
+    //     // $articles = Article::with('theme')->paginate(10);
+    //     // return response()->json($articles);
+
+    //     $articles = Article::with('theme')->get();
+
+    //     return view('articles.index', compact('articles'));
+    // }
     public function index()
-    {
-        // $articles = Article::with('theme')->paginate(10);
-        // return response()->json($articles);
+{
+    $articles = Article::with('theme')->paginate(10);
+    return view('articles.index', compact('articles'));
+}
 
-        $articles = Article::with('theme')->get();
-
-        return view('articles.index', compact('articles'));
-    }
 
     public function create()
     {

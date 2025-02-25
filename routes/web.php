@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/', function () {
+    return view('welcome');
+})->name('welcome');
 Route::resource('articles', ArticleController::class);
 // Route::get('/', [ArticleController::class, 'index'])->name('articles.index');
 // Route::post('/articles', [ArticleController::class, 'store'])->name('articles.store');
